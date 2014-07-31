@@ -15,9 +15,7 @@ Node link[SIZE];
 
 int main(void)
 {
-	while(true)
-		{
-			int firstNode, N, K;
+	int firstNode, N, K;
 	scanf("%d%d%d", &firstNode, &N, &K);
 	//下标代表地址
 	int add;
@@ -76,7 +74,5 @@ int main(void)
 		firstNode = link[firstNode].next;
 	}
 	printf("%05d %d %d\n", firstNode, link[firstNode].data, link[firstNode].next);
-	}
-	system("pause");
 	return 0;
 }
