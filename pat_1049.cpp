@@ -21,7 +21,6 @@ void initial()
 }
 int main(void)
 {
-	while(true){
 	initial();
 	int n;
 	scanf("%d", &n);
@@ -51,6 +50,5 @@ int main(void)
 		--tt;
 	}
 	printf("%d\n", result);
-	}
 	return 0;
 }
