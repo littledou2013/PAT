@@ -17,6 +17,7 @@ int main(void)
 		//一定要判断ans是否大于等于0
 		if ( a > 0 && b > 0 && ans < 0) flag = true;
 		else if ( a < 0 && b < 0 && ans >= 0) flag = false;
+		//也可以这样判断 ans < a    ans > a
 		else if (ans <= c) flag = false;
 		if (flag)
 			printf("Case #%d: true\n", i);
