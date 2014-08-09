@@ -64,13 +64,15 @@ int main(void)
 		//第一种情况，最后一站或后一站太远或后一站已超出终点
 		if (next == N || sta[next].dist - sta[index].dist > once || sta[next].dist >= D)
 		{
+			//能到终点，则计算cost，不能达到终点就不用计算cost，最后直接输出sta[index].dist + D
 			if (sta[index].dist + once >= D)
+				//此站加油量为D - sta[index].dist - left
 				cost += (D - sta[index].dist - left) * sta[index].price;
 			break;
 		}
 		else
 		{
-			//第二种情况，接下来距离内有站点，寻找下一个站点
+			//，接下来距离内有站点，寻找下一个站点，要么为更便宜站点，要么为相对便宜站点
 			int min = next;
 			while (next < N && sta[next].dist < D && sta[next].dist - sta[index].dist <= once )
 			{
@@ -96,7 +98,7 @@ int main(void)
 			else
 			{
 				//如果直接能开到终点，那加到终点的油，不能开到终点，加满油
-				if (sta[index].dist + once - left >= D)
+				if (sta[index].dist + once >= D)
 				{
 					cost += (D - sta[index].dist - left) * sta[index].price;
 					break;
@@ -104,6 +106,7 @@ int main(void)
 				else
 				{
 					cost += (once - left)* sta[index].price;
+					//下一站剩余多少油
 					left = once - (sta[next].dist - sta[index].dist);
 				}
 			}
