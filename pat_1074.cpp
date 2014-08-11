@@ -76,3 +76,67 @@ int main(void)
 	printf("%05d %d %d\n", firstNode, link[firstNode].data, link[firstNode].next);
 	return 0;
 }
+
+方法二
+
+//反转链表
+#include <iostream>
+#include <cstdio>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+#define SIZE 100000
+
+struct Node 
+{
+	int data;
+	int address;
+	int next;
+	int number;
+	bool operator < (const Node &node) const
+	{
+		return number < node.number;
+	}
+};
+
+Node node[SIZE];
+vector<Node> vec;
+int main(void)
+{
+	int head, N, K;
+	scanf("%d%d%d", &head, &N, &K);
+	int add;
+	for (int i = 0; i < N; ++i)
+	{
+		scanf("%d", &add);
+		scanf("%d%d", &node[add].data, &node[add].next);
+		node[add].address = add;
+	}
+	int count = 0;
+	while(head != -1)
+	{
+		node[head].number = count;
+		++count;
+		vec.push_back(node[head]);
+		head = node[head].next;
+	}
+	int length = count / K * K;
+	int divi;
+	int remain;
+	for (size_t i = 0; i < length; ++i)
+	{
+		divi = vec[i].number / K * K;
+		remain = vec[i].number % K;
+		vec[i].number = divi + K - remain - 1;
+	}
+	sort(vec.begin(),vec.end());
+	if (count != 0)
+	{
+		printf("%05d %d ", vec[0].address, vec[0].data);
+		for (int i = 1; i < count; ++i)
+			printf("%05d\n%05d %d ", vec[i].address, vec[i].address, vec[i].data);
+		printf("-1\n");
+	}
+	return 0;
+}
