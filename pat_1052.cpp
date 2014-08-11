@@ -35,7 +35,7 @@ int main(void)
 		head = node[head].next;
 	}
 	sort(vec.begin(), vec.end());
-	//首先我输出第一个数据
+	//首先我输出第一个数据,一定要先更新N
 	N = vec.size();
 	if (N == 0)
 		printf("0 -1\n");
