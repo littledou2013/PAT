@@ -45,7 +45,7 @@ int main(void)
 	int M, N;
 	scanf("%d%d", &M, &N);
 	int val, last;
-	int count = 0;
+	int count = 1;
 	N *= M;
 	scanf("%d", &last);
 	for (int i = 1; i < N; ++i)
