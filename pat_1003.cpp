@@ -5,7 +5,9 @@
 #include <climits>
 using namespace std;
 /*
+	比较难
 	这个题目求的不是最短路径，而是最短路径的数量,对dijkstra算法进行更改就可以
+	
 */
 struct Edge
 {
