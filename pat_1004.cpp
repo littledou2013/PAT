@@ -4,6 +4,7 @@
 #include <queue>
 using namespace std;
 /*
+	比较难，方法可取巧
 	先构建这棵树，再遍历这棵树
 */
 vector<int> Node[101];
