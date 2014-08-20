@@ -96,6 +96,7 @@ int main(void)
 	{
 		scanf("%d", &id);
 		int j = 0;
+		//个人认为这样的遍历方法不是很好，其实可以用二分搜索方法，可以减少时间复杂度
 		while(j < N && student[j].id != id)
 			++j;
 		if (j < N)
